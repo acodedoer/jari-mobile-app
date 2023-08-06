@@ -1,20 +1,48 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import { ImageIcon } from './src/components/ImageIcon';
+import { LargeButton } from './src/components/LargeButton';
+import Page from './src/components/Page';
+import { COLORS, DIMENSIONS } from './src/constants';
+import { useCallback, useState } from 'react';
+import { useFonts } from 'expo-font';
+import { MainMenu } from './src/screens/MainMenu';
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+      'gothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
+      'balsamiq-bold': require('./assets/fonts/BalsamiqSans-Bold.ttf'),
+      'balsamiq-boldItalic': require('./assets/fonts/BalsamiqSans-BoldItalic.ttf'),
+      'balsamiq-italic': require('./assets/fonts/BalsamiqSans-Italic.ttf'),
+      'balsamiq-regular': require('./assets/fonts/BalsamiqSans-Regular.ttf'),
+  });
+ 
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.style} onLayout={onLayoutRootView}>  
+      <StatusBar hidden={true}/> 
+      <MainMenu/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  style:{
+      backgroundColor: COLORS.background,
+      width: DIMENSIONS.vw,
+      height: DIMENSIONS.vh
+  }
+})
