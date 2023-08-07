@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { ImageIcon } from "../components/ImageIcon";
 import { LargeButton } from "../components/LargeButton";
 import { COLORS,SCREENDIMENSIONS } from "../constants";
-import { FONTSIZES } from "../constants/dimensions";
+import { FONTSIZES, LARGEBTNDIMENSIONS } from "../constants/dimensions";
 
 export const MainMenu = () => {
     return(
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     width:SCREENDIMENSIONS.vw,
-    paddingBottom: SCREENDIMENSIONS.half_vw *0.15
+    paddingBottom: SCREENDIMENSIONS.half_vw * SCREENDIMENSIONS.padding
   },
   buttonsContainer:{
     height:SCREENDIMENSIONS.vw,
@@ -62,16 +62,16 @@ const styles = StyleSheet.create({
     flexWrap:"wrap",
   },
   buttonContainer:{
-    height:SCREENDIMENSIONS.half_vw *0.8,
+    height:SCREENDIMENSIONS.half_vw *(1-LARGEBTNDIMENSIONS.offset),
     width:SCREENDIMENSIONS.half_vw,
     justifyContent:"center",
     alignItems:"center",
-    marginBottom:(SCREENDIMENSIONS.half_vw *0.2)/1.5,
+    paddingBottom:LARGEBTNDIMENSIONS.offset/1.5,
   },
   buttonRContainer:{
-    paddingRight:(SCREENDIMENSIONS.half_vw *0.2)/3
+    paddingRight:LARGEBTNDIMENSIONS.offset/3
   },
   buttonLContainer:{
-    paddingLeft:(SCREENDIMENSIONS.half_vw *0.2)/3
+    paddingLeft:LARGEBTNDIMENSIONS.offset/3
   }
 })

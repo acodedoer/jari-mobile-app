@@ -1,10 +1,11 @@
 import React from "react"
 import { StyleSheet, Text, Image} from "react-native"
-import { SCREENDIMENSIONS } from "../constants"
+import { FONTSIZES, SCREENDIMENSIONS } from "../constants"
 
 
 type IconProps = {
-    image:string
+    image:string,
+    type: string
 }
 const images:any = {
     "icon-parrot": require("../../assets/images/icon-parrot.png"),
@@ -12,8 +13,8 @@ const images:any = {
     "icon-saved": require("../../assets/images/icon-saved.png"),
     "icon-speaker": require("../../assets/images/icon-speaker.png")
 }
-export const ImageIcon = ({image}:IconProps): JSX.Element => {
-    return <Image testID="imageIcon" accessibilityRole="image" style={styles.image} source={images[image]}/>
+export const ImageIcon = ({image, type="largeButton"}:IconProps): JSX.Element => {
+    return <Image testID="imageIcon" accessibilityRole="image" style={type==="largeButton"?styles.imageLargeBtn:styles.imageTag} source={images[image]}/>
 }
 
 const styles = StyleSheet.create({
@@ -21,8 +22,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
       },
-    image: {
+    imageLargeBtn: {
         width: SCREENDIMENSIONS.half_vw/3,
         height: SCREENDIMENSIONS.half_vw/3,
     },
+    imageTag: {
+        width: FONTSIZES.tag,
+        height:FONTSIZES.tag,
+    }
 })

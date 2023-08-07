@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react';
 import { useFonts } from 'expo-font';
 import { MainMenu } from './src/screens/MainMenu';
 import * as SplashScreen from 'expo-splash-screen';
+import { SayingsViewer } from './src/screens/SayingsViewer';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,7 +32,8 @@ export default function App() {
   return (
     <View style={styles.style} onLayout={onLayoutRootView}>  
       <StatusBar hidden={true}/> 
-      <MainMenu/>
+      {/* <MainMenu/> */}
+      <SayingsViewer/>
     </View>
   );
 }

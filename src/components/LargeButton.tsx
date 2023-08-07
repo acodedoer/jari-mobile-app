@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { StyleSheet, View, Text, Pressable } from "react-native"
-import { COLORS, SCREENDIMENSIONS } from "../constants"
+import { COLORS, COMMONDIMENSIONS, FONTSIZES, LARGEBTNDIMENSIONS, SCREENDIMENSIONS } from "../constants"
 import { Button } from "./Button"
 
 type ButtonProps = {
@@ -23,19 +23,19 @@ export const LargeButton = ({label, icon}:ButtonProps) => {
 
 const styles = StyleSheet.create({
     container:{
-        width: SCREENDIMENSIONS.half_vw - (SCREENDIMENSIONS.half_vw *0.2),
-        height: SCREENDIMENSIONS.half_vw - (SCREENDIMENSIONS.half_vw *0.2),
+        width: LARGEBTNDIMENSIONS.side,
+        height: LARGEBTNDIMENSIONS.side,
         backgroundColor:"#fff",
-        borderRadius: 5,
+        borderRadius: COMMONDIMENSIONS.borderRadius,
         justifyContent:"center",
         alignItems:"center",
     },
     containerPressed:{
-        backgroundColor:"#FFE4D6",
+        backgroundColor:COLORS.primaryLight,
 
     },
     label:{
-        fontSize: SCREENDIMENSIONS.vw/15,
+        fontSize: FONTSIZES.largeBtn,
         fontFamily:"balsamiq-regular",
         color:COLORS.secondary
     },
