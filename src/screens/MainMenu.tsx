@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import { ImageIcon } from "../components/ImageIcon";
 import { LargeButton } from "../components/LargeButton";
-import { COLORS, DIMENSIONS } from "../constants";
+import { COLORS,SCREENDIMENSIONS } from "../constants";
+import { FONTSIZES } from "../constants/dimensions";
 
 export const MainMenu = () => {
     return(
@@ -32,45 +33,45 @@ export const MainMenu = () => {
 
 const styles = StyleSheet.create({
   container:{
-    width:DIMENSIONS.vw,
-    height:DIMENSIONS.vh,
+    width:SCREENDIMENSIONS.vw,
+    height:SCREENDIMENSIONS.vh,
     alignItems:"center",
     justifyContent:"center",
   },
   title:{
     fontFamily:"balsamiq-bold",
-    fontSize:DIMENSIONS.vw/5,
+    fontSize:FONTSIZES.title,
     color:COLORS.secondary
   },
   title_:{
     fontFamily:"balsamiq-bold",
-    fontSize:DIMENSIONS.vw/5,
+    fontSize:FONTSIZES.title,
     color:COLORS.primary
   },
   titleContainer:{
     flexDirection:"row",
     alignItems:"center",
     justifyContent:"center",
-    width:DIMENSIONS.vw,
-    paddingBottom: DIMENSIONS.half_vw *0.15
+    width:SCREENDIMENSIONS.vw,
+    paddingBottom: SCREENDIMENSIONS.half_vw *0.15
   },
   buttonsContainer:{
-    height:DIMENSIONS.vw,
-    width:DIMENSIONS.vw,
+    height:SCREENDIMENSIONS.vw,
+    width:SCREENDIMENSIONS.vw,
     flexDirection:"row",
     flexWrap:"wrap",
   },
   buttonContainer:{
-    height:DIMENSIONS.half_vw *0.8,
-    width:DIMENSIONS.half_vw,
+    height:SCREENDIMENSIONS.half_vw *0.8,
+    width:SCREENDIMENSIONS.half_vw,
     justifyContent:"center",
     alignItems:"center",
-    marginBottom:(DIMENSIONS.half_vw *0.2)/1.5,
+    marginBottom:(SCREENDIMENSIONS.half_vw *0.2)/1.5,
   },
   buttonRContainer:{
-    paddingRight:(DIMENSIONS.half_vw *0.2)/3
+    paddingRight:(SCREENDIMENSIONS.half_vw *0.2)/3
   },
   buttonLContainer:{
-    paddingLeft:(DIMENSIONS.half_vw *0.2)/3
+    paddingLeft:(SCREENDIMENSIONS.half_vw *0.2)/3
   }
 })

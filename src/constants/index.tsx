@@ -1,7 +1,7 @@
 import { COLORS } from "./theme";
-import { DIMENSIONS } from "./dimensions";
+import { SCREENDIMENSIONS, FONTSIZES } from "./dimensions";
 
 export {
     COLORS,
-    DIMENSIONS
+    SCREENDIMENSIONS
 }

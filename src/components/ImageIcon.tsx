@@ -1,27 +1,19 @@
 import React from "react"
-import { Image } from "expo-image"
-import { StyleSheet, Text, View} from "react-native"
-import { DIMENSIONS } from "../constants"
-
+import { StyleSheet, Text, Image} from "react-native"
+import { SCREENDIMENSIONS } from "../constants"
 
 
 type IconProps = {
     image:string
 }
-
+const images:any = {
+    "icon-parrot": require("../../assets/images/icon-parrot.png"),
+    "icon-tag": require("../../assets/images/icon-tag.png"),
+    "icon-saved": require("../../assets/images/icon-saved.png"),
+    "icon-speaker": require("../../assets/images/icon-speaker.png")
+}
 export const ImageIcon = ({image}:IconProps): JSX.Element => {
-    switch (image){
-        case "icon-parrot":
-            return <View style={styles.container}><Image contentFit={"contain"} style={styles.image} source={require("../../assets/images/icon-parrot.png")}/></View>
-        case "icon-tag":
-            return <View style={styles.container}><Image contentFit={"contain"} style={styles.image} source={require("../../assets/images/icon-tag.png")}/></View>
-        case "icon-saved":
-            return <View style={styles.container}><Image contentFit={"contain"} style={styles.image} source={require("../../assets/images/icon-saved.png")}/></View>
-        case "icon-speaker":
-            return <View style={styles.container}><Image contentFit={"contain"} style={styles.image} source={require("../../assets/images/icon-speaker.png")}/></View>
-        default:
-            return <Text>Not Image Found</Text>
-    }
+    return <Image testID="imageIcon" accessibilityRole="image" style={styles.image} source={images[image]}/>
 }
 
 const styles = StyleSheet.create({
@@ -30,7 +22,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
       },
     image: {
-        width: DIMENSIONS.half_vw/3,
-        height: DIMENSIONS.half_vw/3,
+        width: SCREENDIMENSIONS.half_vw/3,
+        height: SCREENDIMENSIONS.half_vw/3,
     },
 })

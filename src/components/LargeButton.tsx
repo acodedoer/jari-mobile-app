@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { StyleSheet, View, Text, Pressable } from "react-native"
-import { COLORS, DIMENSIONS } from "../constants"
+import { COLORS, SCREENDIMENSIONS } from "../constants"
 import { Button } from "./Button"
 
 type ButtonProps = {
@@ -13,7 +13,7 @@ export const LargeButton = ({label, icon}:ButtonProps) => {
 
     return(
         <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>setPressed(false)}>
-            <View style={[styles.container, pressed?styles.containerPressed:null]}>
+            <View testID="largeButtonView" style={[styles.container, pressed?styles.containerPressed:null]}>
                 {icon}
                 <Text style={[styles.label, pressed?styles.labelPressed:null]}>{label}</Text>
             </View>
@@ -23,8 +23,8 @@ export const LargeButton = ({label, icon}:ButtonProps) => {
 
 const styles = StyleSheet.create({
     container:{
-        width: DIMENSIONS.half_vw - (DIMENSIONS.half_vw *0.2),
-        height: DIMENSIONS.half_vw - (DIMENSIONS.half_vw *0.2),
+        width: SCREENDIMENSIONS.half_vw - (SCREENDIMENSIONS.half_vw *0.2),
+        height: SCREENDIMENSIONS.half_vw - (SCREENDIMENSIONS.half_vw *0.2),
         backgroundColor:"#fff",
         borderRadius: 5,
         justifyContent:"center",
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
     },
     label:{
-        fontSize: DIMENSIONS.vw/15,
+        fontSize: SCREENDIMENSIONS.vw/15,
         fontFamily:"balsamiq-regular",
         color:COLORS.secondary
     },

@@ -1,9 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text } from 'react-native';
-import { ImageIcon } from './src/components/ImageIcon';
-import { LargeButton } from './src/components/LargeButton';
-import Page from './src/components/Page';
-import { COLORS, DIMENSIONS } from './src/constants';
+import { COLORS, SCREENDIMENSIONS } from './src/constants';
 import { useCallback, useState } from 'react';
 import { useFonts } from 'expo-font';
 import { MainMenu } from './src/screens/MainMenu';
@@ -42,7 +39,7 @@ export default function App() {
 const styles = StyleSheet.create({
   style:{
       backgroundColor: COLORS.background,
-      width: DIMENSIONS.vw,
-      height: DIMENSIONS.vh
+      width: SCREENDIMENSIONS.vw,
+      height: SCREENDIMENSIONS.vh
   }
 })
