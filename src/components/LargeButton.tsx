@@ -2,19 +2,19 @@ import React, { useState } from "react"
 import { StyleSheet, View, Text, Pressable } from "react-native"
 import { COLORS, COMMONDIMENSIONS, FONTSIZES, LARGEBTNDIMENSIONS, SCREENDIMENSIONS } from "../constants"
 import { Button } from "./Button"
+import { ButtonProps } from "../types"
+import { ImageIcon } from "./ImageIcon"
 
-type ButtonProps = {
-    label: string;
-    icon: JSX.Element
+type LargeButtonProps = ButtonProps & {
+    setScreen: any
 }
-
-export const LargeButton = ({label, icon}:ButtonProps) => {
+export const LargeButton = ({label, icon, setScreen}:LargeButtonProps) => {
     const [pressed, setPressed] = useState(false);
 
     return(
-        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>setPressed(false)}>
+        <Pressable onPressIn={()=>{setPressed(true); setScreen()}} onPressOut={()=>setPressed(false)}>
             <View testID="largeButtonView" style={[styles.container, pressed?styles.containerPressed:null]}>
-                {icon}
+                <ImageIcon image={icon} type="largeButton" />
                 <Text style={[styles.label, pressed?styles.labelPressed:null]}>{label}</Text>
             </View>
         </Pressable>

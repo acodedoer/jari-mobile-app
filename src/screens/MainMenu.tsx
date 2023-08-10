@@ -4,7 +4,7 @@ import { LargeButton } from "../components/LargeButton";
 import { COLORS,SCREENDIMENSIONS } from "../constants";
 import { FONTSIZES, LARGEBTNDIMENSIONS } from "../constants/dimensions";
 
-export const MainMenu = () => {
+export const MainMenu = ({setScreen}:any) => {
     return(
         <View style={styles.container}>
             <View style={styles.titleContainer}>
@@ -15,16 +15,16 @@ export const MainMenu = () => {
 
             <View style={styles.buttonsContainer}>
             <View style={[styles.buttonLContainer,styles.buttonContainer]}>
-                <LargeButton label={"magana"} icon={<ImageIcon image={"icon-parrot"}/>}/>
+                <LargeButton label={"magana"} setScreen={()=>setScreen(1)} icon={"icon-parrot"}/>
             </View>
             <View style={[styles.buttonRContainer,styles.buttonContainer]}>
-                <LargeButton label={"ire-ire"} icon={<ImageIcon image={"icon-tag"}/>}/>
+                <LargeButton label={"ire-ire"} setScreen={()=>setScreen(2)} icon={"icon-tag"}/>
             </View>
             <View style={[styles.buttonLContainer,styles.buttonContainer]}>
-                <LargeButton label={"zababbu"} icon={<ImageIcon image={"icon-saved"}/>}/>
+                <LargeButton label={"zababbu"} setScreen={()=>setScreen(3)} icon={"icon-saved"}/>
             </View>
             <View style={[styles.buttonRContainer,styles.buttonContainer]}>
-                <LargeButton label={"bayanin mu"} icon={<ImageIcon image={"icon-speaker"}/>}/>
+                <LargeButton label={"bayanin mu"} setScreen={()=>setScreen(4)} icon={"icon-speaker"}/>
             </View>
             </View>
         </View>

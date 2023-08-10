@@ -10,7 +10,7 @@ import { SayingsViewer } from './src/screens/SayingsViewer';
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-
+  const [screen, setScreen] = useState(0);
   const [fontsLoaded] = useFonts({
       'gothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
       'balsamiq-bold': require('./assets/fonts/BalsamiqSans-Bold.ttf'),
@@ -29,11 +29,15 @@ export default function App() {
     return null;
   }
 
+
   return (
     <View style={styles.style} onLayout={onLayoutRootView}>  
       <StatusBar hidden={true}/> 
-      {/* <MainMenu/> */}
-      <SayingsViewer/>
+      {
+        screen==0?<MainMenu setScreen={setScreen}/>:
+        screen==1?<SayingsViewer/>:
+        null
+      }
     </View>
   );
 }

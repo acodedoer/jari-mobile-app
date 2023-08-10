@@ -22,6 +22,10 @@ const Tag = ({label}:TagProps) => {
 export const Saying = () => {
     return(
         <View style={styles.container}>
+            <View style={styles.infoBar}>
+                <Text style={styles.info}>1/200</Text>
+                <Text style={styles.info}>zamantakewa</Text>
+            </View>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>Gani ya kori ji.</Text>
             </View>
@@ -94,6 +98,22 @@ const styles = StyleSheet.create({
     },
     tagLabelPressed: {
         color:COLORS.primary,
+    },
+    infoBar: {
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+        width:SCREENDIMENSIONS.vw * (1 - SCREENDIMENSIONS.padding),
+    },
+    info:{
+        fontFamily:"balsamiq-regular",
+        fontSize:FONTSIZES.tag,
+        borderColor:COLORS.secondary,
+        borderWidth:1,
+        borderRadius: COMMONDIMENSIONS.borderRadius,
+        padding:COMMONDIMENSIONS.borderRadius,
+        marginBottom: COMMONDIMENSIONS.borderRadius*2,
+        color:COLORS.secondary
     }
 
 })
