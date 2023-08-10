@@ -6,11 +6,14 @@ import { useFonts } from 'expo-font';
 import { MainMenu } from './src/screens/MainMenu';
 import * as SplashScreen from 'expo-splash-screen';
 import { SayingsViewer } from './src/screens/SayingsViewer';
+import { useSnapshot } from "valtio/react";
+import { setScreen, state } from "./src/state";
+import { HomeButton } from './src/components/HomeButton';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [screen, setScreen] = useState(0);
+  const {screen} = useSnapshot(state)
   const [fontsLoaded] = useFonts({
       'gothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
       'balsamiq-bold': require('./assets/fonts/BalsamiqSans-Bold.ttf'),
@@ -34,8 +37,8 @@ export default function App() {
     <View style={styles.style} onLayout={onLayoutRootView}>  
       <StatusBar hidden={true}/> 
       {
-        screen==0?<MainMenu setScreen={setScreen}/>:
-        screen==1?<SayingsViewer/>:
+        screen==0?<MainMenu />:
+        screen==1?<SayingsViewer />:
         null
       }
     </View>

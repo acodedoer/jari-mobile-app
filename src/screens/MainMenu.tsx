@@ -1,10 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
-import { ImageIcon } from "../components/ImageIcon";
 import { LargeButton } from "../components/LargeButton";
 import { COLORS,SCREENDIMENSIONS } from "../constants";
 import { FONTSIZES, LARGEBTNDIMENSIONS } from "../constants/dimensions";
+import { useSnapshot } from "valtio/react";
+import { setScreen, state } from "../state";
 
-export const MainMenu = ({setScreen}:any) => {
+export const MainMenu = () => {
     return(
         <View style={styles.container}>
             <View style={styles.titleContainer}>
@@ -15,16 +16,16 @@ export const MainMenu = ({setScreen}:any) => {
 
             <View style={styles.buttonsContainer}>
             <View style={[styles.buttonLContainer,styles.buttonContainer]}>
-                <LargeButton label={"magana"} setScreen={()=>setScreen(1)} icon={"icon-parrot"}/>
+                <LargeButton label={"magana"} callback={()=>setScreen(1)} icon={"icon-parrot"}/>
             </View>
             <View style={[styles.buttonRContainer,styles.buttonContainer]}>
-                <LargeButton label={"ire-ire"} setScreen={()=>setScreen(2)} icon={"icon-tag"}/>
+                <LargeButton label={"ire-ire"}  callback={()=>setScreen(2)} icon={"icon-tag"}/>
             </View>
             <View style={[styles.buttonLContainer,styles.buttonContainer]}>
-                <LargeButton label={"zababbu"} setScreen={()=>setScreen(3)} icon={"icon-saved"}/>
+                <LargeButton label={"zababbu"}  callback={()=>setScreen(3)} icon={"icon-saved"}/>
             </View>
             <View style={[styles.buttonRContainer,styles.buttonContainer]}>
-                <LargeButton label={"bayanin mu"} setScreen={()=>setScreen(4)} icon={"icon-speaker"}/>
+                <LargeButton label={"bayanin mu"}  callback={()=>setScreen(4)} icon={"icon-speaker"}/>
             </View>
             </View>
         </View>

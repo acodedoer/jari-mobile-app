@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Pressable, View, StyleSheet } from "react-native"
 import { COLORS, COMMONDIMENSIONS, SCREENDIMENSIONS } from "../constants"
 import { ImageIcon } from "./ImageIcon"
+import { setScreen} from "../state";
 
 export const HomeButton = () => {
     const [pressed, setPressed] = useState(false);
     return(
-        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>setPressed(false)}>
+        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>{setPressed(false);; setScreen(0);}}>
             <View style={[styles.container, pressed?styles.containerPressed:null]}>
                 <ImageIcon image= "icon-cross" type="imageHome"/>
             </View>
@@ -16,11 +17,11 @@ export const HomeButton = () => {
 
 const styles = StyleSheet.create({
     container: {
-        shadowOffset: {width: -0.5, height: 1},  
-        shadowColor: '#171717',  
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"center",
+        shadowOffset: {width: -0.5, height: 1},  
+        shadowColor: '#171717',  
         shadowOpacity: 0.2,  
         shadowRadius: 3,  
         elevation: 1, 
