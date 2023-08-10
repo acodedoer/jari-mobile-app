@@ -9,6 +9,9 @@ import { SayingsViewer } from './src/screens/SayingsViewer';
 import { useSnapshot } from "valtio/react";
 import { setScreen, state } from "./src/state";
 import { HomeButton } from './src/components/HomeButton';
+import { TagsViewer } from './src/screens/TagsViewer';
+import { FavouritesViewer } from './src/screens/FavouritesViewer';
+import { About } from './src/screens/About';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -39,6 +42,9 @@ export default function App() {
       {
         screen==0?<MainMenu />:
         screen==1?<SayingsViewer />:
+        screen==2?<TagsViewer />:
+        screen==3?<FavouritesViewer />:
+        screen==4?<About />:
         null
       }
     </View>
