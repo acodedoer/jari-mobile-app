@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { COLORS, SCREENDIMENSIONS } from './src/constants';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
 import { MainMenu } from './src/screens/MainMenu';
 import * as SplashScreen from 'expo-splash-screen';
 import { SayingsViewer } from './src/screens/SayingsViewer';
 import { useSnapshot } from "valtio/react";
-import { setScreen, state } from "./src/state";
-import { HomeButton } from './src/components/HomeButton';
+import { state } from "./src/state";
 import { TagsViewer } from './src/screens/TagsViewer';
 import { FavouritesViewer } from './src/screens/FavouritesViewer';
 import { About } from './src/screens/About';
