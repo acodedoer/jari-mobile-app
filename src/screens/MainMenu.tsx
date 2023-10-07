@@ -21,12 +21,12 @@ export const MainMenu = () => {
             <View style={[styles.buttonRContainer,styles.buttonContainer]}>
                 <LargeButton label={"ire-ire"}  callback={()=>setScreen(2)} icon={"icon-tag"}/>
             </View>
-            <View style={[styles.buttonLContainer,styles.buttonContainer]}>
+            {/* <View style={[styles.buttonLContainer,styles.buttonContainer]}>
                 <LargeButton label={"zababbu"}  callback={()=>setScreen(3)} icon={"icon-saved"}/>
             </View>
             <View style={[styles.buttonRContainer,styles.buttonContainer]}>
                 <LargeButton label={"bayanin mu"}  callback={()=>setScreen(4)} icon={"icon-speaker"}/>
-            </View>
+            </View> */}
             </View>
         </View>
     );

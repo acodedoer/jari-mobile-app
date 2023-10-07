@@ -1,44 +1,29 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { View, Text, StyleSheet, Pressable } from "react-native"
 import { COLORS, COMMONDIMENSIONS, FONTSIZES, SCREENDIMENSIONS } from "../constants"
 import { ImageIcon } from "./ImageIcon"
+import { Tag } from "./Tag"
+import { state } from "../state"
+import { useSnapshot } from "valtio"
 
-type TagProps = {
-    label:string
-}
-const Tag = ({label}:TagProps) => {
-    const [pressed, setPressed] = useState(false);
+export const Saying = ({data, total, index, tag}:any) => {
+    const {tagView, selectedTag} = useSnapshot(state)
     return(
-        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>setPressed(false)}>
-            <View style={[styles.tagContainer, pressed?styles.tagContainerPressed:null]}>
-                <ImageIcon image="icon-tag" type="imageTag" />
-                <Text style={[styles.tagLabel, pressed? styles.tagLabelPressed:null]}>
-                    {label}
-                </Text>
-            </View>
-        </Pressable>
-    )
-}
-export const Saying = () => {
-    return(
-        <View style={styles.container}>
+        data?<View style={styles.container}>
             <View style={styles.infoBar}>
-                <Text style={styles.info}>1/200</Text>
-                <Text style={styles.info}>zamantakewa</Text>
+                <Text style={styles.info}>{`${index}/${total}`}</Text>
+                {tagView?<Text style={styles.info}>{selectedTag}</Text>:null}
             </View>
             <View style={styles.textContainer}>
-                <Text style={styles.text}>Gani ya kori ji.</Text>
+                <Text style={styles.text}>{data.saying}</Text>
             </View>
             <View style={styles.tagsContainer}>
-                <Tag label="sutura" />
-                <Tag label="nasiha" />
-                <Tag label="zamantakewa" />
-                <Tag label="gaskiya" />
-                <Tag label="aboki" />
-                <Tag label="wando" />
-
+                {data.tagDetails.map(({name, _id}:any)=>
+                    <Tag label={name} id={_id} />
+                )}
             </View>
         </View>
+        :<View></View>
     )
 }
 

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Pressable, View, StyleSheet } from "react-native"
 import { COLORS, COMMONDIMENSIONS, SCREENDIMENSIONS } from "../constants"
 import { ImageIcon } from "./ImageIcon"
-import { setScreen} from "../state";
+import { setScreen, setTagView} from "../state";
 
 export const HomeButton = () => {
     const [pressed, setPressed] = useState(false);
     return(
-        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>{setPressed(false);; setScreen(0);}}>
+        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>{setPressed(false);; setScreen(0); setTagView(false)}}>
             <View style={[styles.container, pressed?styles.containerPressed:null]}>
                 <ImageIcon image= "icon-cross" type="imageHome"/>
             </View>

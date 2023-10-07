@@ -5,13 +5,14 @@ import { ButtonProps } from "../types"
 import { ImageIcon } from "./ImageIcon";
 
 type NavButtonPros  =  ButtonProps & {
-    direction: string
+    direction: string,
+    onClick:any
 }
 
-export const NavButton = ({label, icon, direction}: NavButtonPros) => {
+export const NavButton = ({label, icon, direction, onClick}: NavButtonPros) => {
     const [pressed, setPressed] = useState(false);
     return(
-        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>setPressed(false)}>
+        <Pressable onPressIn={()=>setPressed(true)} onPressOut={()=>{setPressed(false); onClick()}}>
             <View style={[styles.container, pressed?styles.containerPressed:null]}>
                 {direction == "left" ? <ImageIcon image={icon} type="navButton"/> : null}
                 <Text style={[styles.label, pressed?styles.labelPressed:null]}>{label}</Text>
