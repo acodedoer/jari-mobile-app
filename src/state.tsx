@@ -3,6 +3,7 @@ import {proxy} from "valtio";
 export const state = proxy({
     screen:0,
     tagView:false,
+    sayingsIndex:0,
     selectedTag: "",
     tagSayings:[],
     sayings:[],
@@ -11,6 +12,10 @@ export const state = proxy({
 
 export const setScreen = (val:number) => {
     state.screen = val;
+}
+
+export const setSayingsIndex = (val:number) => {
+    state.sayingsIndex = val;
 }
 
 export const setSelectedTag= (tag:string) => {

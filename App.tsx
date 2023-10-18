@@ -20,7 +20,6 @@ export default function App() {
 
   useEffect(()=>{
     const url = "https://jari-server-api.onrender.com";
-    // Invoking the get method to perform a GET request
     axios.get(`${url}/sayings/0/-1`).then((response) => {
         setSayings(response.data);
     })

@@ -3,16 +3,22 @@ import { View, Text, StyleSheet, Pressable } from "react-native"
 import { COLORS, COMMONDIMENSIONS, FONTSIZES, SCREENDIMENSIONS } from "../constants"
 import { ImageIcon } from "./ImageIcon"
 import { Tag } from "./Tag"
-import { state } from "../state"
+import { state, setScreen, setTagView } from "../state"
 import { useSnapshot } from "valtio"
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-export const Saying = ({data, total, index, tag}:any) => {
-    const {tagView, selectedTag} = useSnapshot(state)
+export const Saying = ({data, total, tag}:any) => {
+    const {tagView, selectedTag, sayingsIndex} = useSnapshot(state)
     return(
         data?<View style={styles.container}>
             <View style={styles.infoBar}>
-                <Text style={styles.info}>{`${index}/${total}`}</Text>
-                {tagView?<Text style={styles.info}>{selectedTag}</Text>:null}
+                <Text style={styles.info}>{`${sayingsIndex+1}/${total}`}</Text>
+                {tagView?
+                <View>
+                    <Ionicons name="ios-close-circle-outline" size={8} style={{position:"absolute", top:-2, right:-2, zIndex:900}} color="white" />
+                    <Ionicons onPress={()=>setTagView(false)} name="close-circle" size={8} style={{position:"absolute", top:-2, right:-2, zIndex:1000}} color="#11263c" />
+                    <Text style={styles.info}>{selectedTag}</Text>
+                </View>:null}
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>{data.saying}</Text>
